@@ -106,3 +106,19 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+
+Starting project. 
+as with the I think before I blog.
+pip3 install 'django<4' gunicorn
+pip3 install dj_database_url==0.5.0 psycopg2
+pip3 freeze --local > requirements.txt
+django-admin startproject booking .
+python3 manage.py startapp customer
+python3 manage.py startapp shop
+python3 manage.py migrate
+
+Heroku has been setup, but not yet linked. 
+Used after setting up Templates.
+Media Files: will be using Pillow: Python Imaging Library (Fork)
+pip3 install pillow

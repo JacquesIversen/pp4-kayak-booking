@@ -1,19 +1,19 @@
 {% extends 'customer/base.html' %}
 
 {% block content %}
-<div class="container md-5">
+<div class="container mb-5">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-8 col-sm-12 offset-md-1 text-center">
-            <h1> Book Your Kayak here! </h1>
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+            <h1>Online Food Delivery Service</h1>
         </div>
     </div>
     <div class="row justify-content-center mt-1">
-        <div class="card col-md-5 col-sm-12 text-center">
-            <h2> Book Here: </h2>
-            <button class="btn btn-outline-primary">Book Now</button>
+        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+            <h2>Place an Order!</h2>
+            <a href="{% url 'order' %}" class="btn btn-outline-primary">Order Now!</a>
         </div>
     </div>
 </div>
 
-<h1 class="text-center">This is the index.html</h1>
+<h1>this is index</h1>
 {% endblock content %}

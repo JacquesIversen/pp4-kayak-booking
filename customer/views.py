@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from .models import KayakVariant, Duration, OrderModel
 
 # Create your views here.
 
@@ -16,10 +17,9 @@ class About(View):
 
 class Order(View):
     def get(self, request, *args, **kwargs):
-        pass
         # get items from duration
-        halfdays = KayakVariant.objects.fitler(duration__name__contains='HalfDay')
-        fulldays = KayakVariant.objects.fitler(duration__name__contains='FullDay')
+        halfdays = KayakVariant.objects.filter(category__name__contains='HalfDay')
+        fulldays = KayakVariant.objects.filter(category__name__contains='FullDay')
 
         # pass into context
         context = {
@@ -38,7 +38,7 @@ class Order(View):
         items = request.POST.getlist('items[]')
 
         for item in items:
-            kayak_variant = KayakVariant.objects.get(pk__contains=int(item))
+            kayak_variant = KayakVariant.objects.get(pk=int(item))
             item_data = {
                 'id': kayak_variant.pk,
                 'name': kayak_variant.name,

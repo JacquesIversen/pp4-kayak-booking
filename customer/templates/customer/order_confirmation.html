@@ -1,20 +1,24 @@
 {% extends 'customer/base.html' %}
 
 {% block content %}
-<div class="container md-5">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-8 col-sm-12 offset-md-1 text-center">
-            <h1>About us</h1>
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Order Submitted!</h1>
+            <p>You should receive a confirmation email soon.</p>
+            <a href="{% url 'index' %}">Go to the homepage</a>
         </div>
     </div>
-    <div class="row justify-content-center mt-1">
-        <div class="card col-md-5 col-sm-12 text-center">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident labore earum temporibus, atque harum itaque facilis quidem cumque praesentium mollitia a placeat, voluptatem non modi animi ullam at error omnis!</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, modi nisi? Atque saepe, pariatur commodi quasi nemo eum impedit exercitationem id officiis quia libero! Temporibus sit accusamus est aspernatur vero!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aliquam, autem dolor molestias enim eligendi? Illo, quidem dolore cum praesentium sit quos qui pariatur possimus corrupti veritatis soluta voluptates quo!</p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-12 text-center">
+            <h3 class="pb-3">Order Summary:</h3>
+            {% for item in items %}
+                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+            {% endfor %}
+
+            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
         </div>
     </div>
 </div>
-
-<h1 class="text-center">This is confirmation.html</confirmation></h1>
 {% endblock content %}

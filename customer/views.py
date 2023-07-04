@@ -18,6 +18,7 @@ class Order(View):
     def get(self, request, *args, **kwargs):
         pass
         # get items
+        # TheBlueSmurfs = KayakVariant.objects.fitler(catagore__name__contains='TheBlueSmurf')
 
         # pass into
 

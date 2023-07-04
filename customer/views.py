@@ -17,9 +17,15 @@ class About(View):
 class Order(View):
     def get(self, request, *args, **kwargs):
         pass
-        # get items
-        # TheBlueSmurfs = KayakVariant.objects.fitler(catagore__name__contains='TheBlueSmurf')
+        # get items from duration
+        halfdays = KayakVariant.objects.fitler(duration__name__contains='HalfDay')
+        fulldays = KayakVariant.objects.fitler(duration__name__contains='FullDay')
 
-        # pass into
+        # pass into context
+        context = {
+            'halfdays': halfdays,
+            'fulldays': fulldays,
+        }
 
         # render
+        return render(request, 'customer/order.html', context)

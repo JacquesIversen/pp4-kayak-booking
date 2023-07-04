@@ -122,3 +122,13 @@ Heroku has been setup, but not yet linked.
 Used after setting up Templates.
 Media Files: will be using Pillow: Python Imaging Library (Fork)
 pip3 install pillow
+
+
+Will be refering to following sources: 
+Gareth's PP4 project.
+https://github.com/Gareth-McGirr/Portfolio-Project-4-SizzleAndSteak
+Django Blog From CodeInstitute.
+Setting up a Django project and Python Virtual Environments from @CodingEntrepreneurs on Youtube.
+Python Crash course and Django Blog Project from @NetNinja on Youtube.
+Django crash course, channels and apps from @LegionScript on Youtube.
+Django Tutorial from @TechWithTim on Youtube.

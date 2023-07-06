@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +32,8 @@ ALLOWED_HOSTS = ['8000-jacquesiver-pp4kayakboo-4jx3t2zq1sy.ws-eu101.gitpod.io']
 
 # Application definition
 
+SITE_ID = 1
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,9 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'customer',
     'shop',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'crispy_forms',
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +69,7 @@ ROOT_URLCONF = 'booking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,12 +77,23 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'booking.wsgi.application'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'APP': {
+            'client_id': '6ac804c93fd9f28cd174',
+            'secret': '039166e2d37794e8bd68cae94d647b2875cc2426',
+            'key': ''
+        }
+    }
+}
 
 
 # Database
@@ -127,5 +150,21 @@ MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ALLAUTH BACKEND
+
+# AUTHENTICATION_BACKENDS = (
+#     "django.contrib.auth.backends.ModelBackend",
+#     "allauth.account.auth_backends.AuthenticationBackend",
+# )
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ACCOUNT_ADAPTER = 'shop.account_adapter.NoNewUsersAccountAdapter'
+
+# CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

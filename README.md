@@ -122,6 +122,9 @@ Heroku has been setup, but not yet linked.
 Used after setting up Templates.
 Media Files: will be using Pillow: Python Imaging Library (Fork)
 pip3 install pillow
+pip3 install django-allauth
+pipenv install django-allauth==0.43.0
+pip3 install django-crispy-forms
 
 
 Will be refering to following sources: 
@@ -132,3 +135,4 @@ Setting up a Django project and Python Virtual Environments from @CodingEntrepre
 Python Crash course and Django Blog Project from @NetNinja on Youtube.
 Django crash course, channels and apps from @LegionScript on Youtube.
 Django Tutorial from @TechWithTim on Youtube.
+Following Tutorial for User Auth. - https://learndjango.com/tutorials/django-allauth-tutorial

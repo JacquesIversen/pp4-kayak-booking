@@ -27,12 +27,15 @@ SECRET_KEY = 'django-insecure-djz219+azyl=7ywr#koeef3nex8749obj7wl$de3-dpsqifnep
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jacquesiver-pp4kayakboo-4jx3t2zq1sy.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['https://jacquesiversen-symmetrical-tribble-5jwj9r4qw94c776j-8000.preview.app.github.dev/', 'localhost']
 
 
 # Application definition
 
-SITE_ID = 1
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,14 +45,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'customer',
-    'shop',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'crispy_forms',
+    'customer',
+    'shop',
 ]
+
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -69,7 +74,7 @@ ROOT_URLCONF = 'booking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -153,18 +158,8 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# ALLAUTH BACKEND
-
-# AUTHENTICATION_BACKENDS = (
-#     "django.contrib.auth.backends.ModelBackend",
-#     "allauth.account.auth_backends.AuthenticationBackend",
-# )
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# ACCOUNT_ADAPTER = 'shop.account_adapter.NoNewUsersAccountAdapter'
+ACCOUNT_ADAPTER = 'customer.account_adapter.NoNewUsersAccountAdapter'
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap5'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
